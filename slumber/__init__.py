@@ -129,7 +129,7 @@ class Resource(ResourceAttributesMixin, object):
                 resource_obj = self(url_override=resp.headers["location"])
                 return resource_obj.get(params=kwargs)
             else:
-                return resp.content
+                return s.loads(resp.content)
         else:
             # @@@ Need to be Some sort of Error Here or Something
             return
